@@ -6,31 +6,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 x=np.array(range(200))
-
-
-# In[5]:
-
 print(x)
-
-
-# In[7]:
-
 y=np.sin(x)
 print(y)
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
-
-
-
-# In[19]:
-
 cv=open("sub017_baseline_BloodPulse.csv",'r')
 
 
