@@ -42,7 +42,7 @@ for i in range(start_index,start_index+total_sec):
 		continue
 
 final_data = final_data.astype(float)
-time_asix = np.arange(0,20,0.001,float)
+time_asix = np.arange(0,10,0.001,float)
 print(len(time_asix))
-plt.plot(time_asix,final_data[0:20000])
+plt.plot(time_asix,final_data[0:10000])
 plt.show()
