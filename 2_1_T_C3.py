@@ -14,34 +14,38 @@ end_time=datetime.datetime.strptime("13:41:40","%H:%M:%S")
 total_sec=0
 start_index=0;
 for i in range(0,len_of_tsdata):
-    temp_time=datetime.datetime.strptime(ts_data[i][0]," %H:%M:%S.")
-    if(start_time<temp_time):
-        #final_data=np.array(ts_data[i][1:])
-        total_sec+=1
-        break;
-    else:
-        start_index=i+1
+	temp_time=datetime.datetime.strptime(ts_data[i][0]," %H:%M:%S.")
+	if(start_time<=temp_time):
+		total_sec+=1
+		break;
+	else:
+		start_index=i+1
 final_data = np.array(ts_data[start_index][1:])
-print(start_index)
 
 for i in range(start_index+1,len_of_tsdata):
-    temp_time=datetime.datetime.strptime(ts_data[i][0]," %H:%M:%S.")
-    if(start_time<=temp_time and temp_time<=end_time):
-        total_sec+=1
-        final_data = np.append(final_data,ts_data[i][1:])
-print(total_sec)
-print(len(final_data))
+	temp_time=datetime.datetime.strptime(ts_data[i][0]," %H:%M:%S.")
+	if(start_time<=temp_time and temp_time<=end_time):
+		total_sec+=1
+		final_data = np.append(final_data,ts_data[i][1:])
+	else:
+		break
+
+total_amplitude=0.0
 total_round=0;
 for i in range(start_index,start_index+total_sec):
-	if((i-start_index)%6==0):
+	if((i-start_index)%6==5):
 		temp_arr=np.concatenate((ts_data[i-5][1:],ts_data[i-4][1:],ts_data[i-3][1:],ts_data[i-2][1:],ts_data[i-1][1:],ts_data[i][1:]))
 		peak = max(temp_arr)
 		down = min(temp_arr)
+		total_amplitude+=(peak.astype(float)-down.astype(float))
 		total_round+=1
 	else:
 		continue
+#print(total_round)
+
+average_amplitude = total_amplitude/total_round
 final_data = final_data.astype(float)
+print(average_amplitude)
 time_asix = np.arange(0,10,0.001,float)
-print(len(time_asix))
 plt.plot(time_asix,final_data[0:10000])
-plt.show()
+#plt.show()
