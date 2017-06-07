@@ -15,6 +15,5 @@ for i in range(2,10):
     final_data = np.append(final_data,ts_data[i][1:])
 final_data = final_data.astype(float)
 time_axix = np.arange(0,10,0.001,float)
-print(len(time_axix))
 plt.plot(time_axix,np.absolute(final_data))
 plt.show()

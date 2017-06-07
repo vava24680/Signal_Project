@@ -11,12 +11,9 @@ for i in range(len(ts_data)):
     ts_data[i]=ts_data[i].split(',')
 
 final_data = np.append(ts_data[0][1:],ts_data[1][1:])
-for i in range(2,10):
+for i in range(2,len_of_tsdata):
     final_data = np.append(final_data,ts_data[i][1:])
 final_data = final_data.astype(float)
-time_axix = np.arange(0,10,0.001,float)
-#print(time_axix)
-#print(len(final_data))
-#print(len_of_tsdata/len(final_data))
+time_axix = np.arange(0,len_of_tsdata,0.001,float)
 plt.plot(time_axix,np.absolute(final_data))
 plt.show()

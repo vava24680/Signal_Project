@@ -45,7 +45,7 @@ for i in range(start_index,start_index+total_sec):
 
 average_amplitude = total_amplitude/total_round
 final_data = final_data.astype(float)
-print(average_amplitude)
+print("Avreage amplitude : ",average_amplitude)
 time_asix = np.arange(0,10,0.001,float)
 plt.plot(time_asix,final_data[0:10000])
 #plt.show()
