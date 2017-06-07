@@ -36,5 +36,8 @@ final_data = final_data.astype(float)
 fft_result = np.fft.fft(final_data)
 time_asix = np.arange(0,total_sec,0.001,float)
 plt.plot(time_asix,np.absolute(fft_result))
+<<<<<<< HEAD:2_d.py
 #plt.plot(time_asix,final_data)
+=======
+>>>>>>> cb1acd1cd17eb9c6381df9e39873628eae921455:2_4.py
 plt.show()
